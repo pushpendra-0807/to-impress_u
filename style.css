@@ -6,82 +6,88 @@
 
 body {
   height: 100vh;
+  margin: 0;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-size: 1000px;
   background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
-  background-position: center center;
-  overflow: hidden;
+  background-size: 1000px;
+  background-position: center;
 }
 
+/* 📄 Paper */
 .paper {
+  position: absolute;
+  padding: 20px 70px;
+
   background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
   background-size: 500px;
-  background-position: center center;
 
-  padding: 20px 80px;
-  position: absolute;
-
-  transform: rotateZ(-5deg);
   box-shadow: 1px 15px 20px rgba(0,0,0,0.5);
+  touch-action: none;
 }
 
 /* ❤️ Heart */
 .paper.heart {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   padding: 0;
   border-radius: 50%;
-  position: relative;
 }
 
 .paper.heart::after {
   content: "";
-  background-image: url("https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png");
-  width: 100%;
-  height: 100%;
   position: absolute;
   inset: 0;
-  background-size: 150px;
-  background-position: center;
+  background-image: url("https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png");
+  background-size: 140px;
   background-repeat: no-repeat;
+  background-position: center;
   opacity: 0.6;
 }
 
-/* 📸 Image papers */
+/* 📸 Image paper */
 .paper.image {
   padding: 15px;
-  max-width: 340px;
+  max-width: 320px;
 }
 
-.paper.image p {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-/* 🔥 THIS FIXES IMAGE COMPRESSION */
 .paper.image img {
   display: block;
-
   max-width: 100%;
-  height: auto;               /* keeps aspect ratio */
+  height: auto;
   max-height: 260px;
-
-  object-fit: contain;        /* prevents squashing */
+  object-fit: contain;
   background: white;
   padding: 6px;
   border-radius: 6px;
-
   user-select: none;
 }
 
 /* ✍️ Text */
 p {
   font-family: 'Zeyada', cursive;
-  font-size: 50px;
+  font-size: 46px;
   color: rgb(0,0,100);
   opacity: 0.75;
+  margin: 8px 0;
   user-select: none;
+}
+
+/* 📱 Mobile scaling */
+@media (max-width: 600px) {
+  .paper {
+    padding: 16px 40px;
+  }
+
+  p {
+    font-size: 36px;
+  }
+
+  .paper.image {
+    max-width: 260px;
+  }
 }
